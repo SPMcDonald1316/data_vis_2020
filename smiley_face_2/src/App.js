@@ -5,6 +5,9 @@ const height = 500;
 const centerX = width / 2;
 const centerY = height / 2;
 const strokeWidth = 10;
+const eyeOffsetX = 90;
+const eyeOffsetY = 100;
+const eyeRadius = 40;
 
 function App() {
   return (
@@ -12,11 +15,21 @@ function App() {
       <circle
         cx={centerX}
         cy={centerY}
-        r="245"
+        r={centerY - strokeWidth / 2}
         fill="yellow"
         stroke="black"
         stroke-width={strokeWidth}
-      ></circle>
+      />
+      <circle
+        cx={centerX - eyeOffsetX}
+        cy={centerY - eyeOffsetY}
+        r={eyeRadius}
+      />
+      <circle
+        cx={centerX + eyeOffsetX}
+        cy={centerY - eyeOffsetY}
+        r={eyeRadius}
+      />
     </svg>
   );
 }
