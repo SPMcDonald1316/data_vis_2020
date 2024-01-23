@@ -1,6 +1,7 @@
 import './App.css';
 import { arc } from 'd3';
 import { BackgroundCircle } from './BackgroundCircle';
+import { Eyes } from './Eyes';
 
 const width = 960;
 const height = 500;
@@ -18,22 +19,6 @@ const mouthArc = arc()
   .outerRadius(mouthRadius + mouthWidth)
   .startAngle(Math.PI / 2)
   .endAngle(Math.PI * 3 / 2);
-
-const Eyes = ({eyeOffsetX, eyeOffsetY, eyeRadius}) => (
-  <>
-    <circle
-      cx={-eyeOffsetX}
-      cy={-eyeOffsetY}
-      r={eyeRadius}
-    />
-    <circle
-      cx={eyeOffsetX}
-      cy={-eyeOffsetY}
-      r={eyeRadius}
-    />
-  </>
-)
-
 
 function App() {
   return (
