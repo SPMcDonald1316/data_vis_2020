@@ -14,9 +14,10 @@ const eyeRadius = 40;
 const mouthWidth = 20;
 const mouthRadius = 140;
 
-const FaceContainer = () => (
+const FaceContainer = ({ children }) => (
   <svg width={width} height={height}>
     <g transform={`translate(${centerX}, ${centerY})`}>
+      {children}
     </g>
   </svg>
 );
