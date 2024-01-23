@@ -14,26 +14,29 @@ const eyeRadius = 40;
 const mouthWidth = 20;
 const mouthRadius = 140;
 
-function App() {
-  return (
-    <svg width={width} height={height}>
-      <g transform={`translate(${centerX}, ${centerY})`}>
-        <BackgroundCircle 
-          radius={centerY - strokeWidth / 2} 
-          strokeWidth={strokeWidth}
-        ></BackgroundCircle>
-        <Eyes 
-          eyeOffsetX={eyeOffsetX} 
-          eyeOffsetY={eyeOffsetY} 
-          eyeRadius={eyeRadius}
-        ></Eyes>
-        <Mouth 
-          mouthRadius={mouthRadius} 
-          mouthWidth={mouthWidth}
-        ></Mouth>
-      </g>
-    </svg>
-  );
-}
+const FaceContainer = () => (
+  <svg width={width} height={height}>
+    <g transform={`translate(${centerX}, ${centerY})`}>
+    </g>
+  </svg>
+);
+
+ const App = () => (
+  <FaceContainer>
+    <BackgroundCircle 
+      radius={centerY - strokeWidth / 2} 
+      strokeWidth={strokeWidth}
+    ></BackgroundCircle>
+    <Eyes 
+      eyeOffsetX={eyeOffsetX} 
+      eyeOffsetY={eyeOffsetY} 
+      eyeRadius={eyeRadius}
+    ></Eyes>
+    <Mouth 
+      mouthRadius={mouthRadius} 
+      mouthWidth={mouthWidth}
+    ></Mouth>
+  </FaceContainer>
+);
 
 export default App;
