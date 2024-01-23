@@ -27,7 +27,10 @@ function App() {
           eyeOffsetY={eyeOffsetY} 
           eyeRadius={eyeRadius}
         ></Eyes>
-        <Mouth mouthRadius={mouthRadius} mouthWidth={mouthWidth}></Mouth>
+        <Mouth 
+          mouthRadius={mouthRadius} 
+          mouthWidth={mouthWidth}
+        ></Mouth>
       </g>
     </svg>
   );
