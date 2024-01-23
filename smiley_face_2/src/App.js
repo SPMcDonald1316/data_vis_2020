@@ -2,6 +2,7 @@ import './App.css';
 import { BackgroundCircle } from './BackgroundCircle';
 import { Eyes } from './Eyes';
 import { Mouth } from './Mouth';
+import { FaceContainer } from './FaceContainer';
 
 const width = 960;
 const height = 500;
@@ -14,16 +15,13 @@ const eyeRadius = 40;
 const mouthWidth = 20;
 const mouthRadius = 140;
 
-const FaceContainer = ({ children }) => (
-  <svg width={width} height={height}>
-    <g transform={`translate(${centerX}, ${centerY})`}>
-      {children}
-    </g>
-  </svg>
-);
-
  const App = () => (
-  <FaceContainer>
+  <FaceContainer
+    width={width}
+    height={height}
+    centerX={centerX}
+    centerY={centerY}
+  >
     <BackgroundCircle 
       radius={centerY - strokeWidth / 2} 
       strokeWidth={strokeWidth}
