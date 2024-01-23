@@ -18,9 +18,9 @@ const mouthArc = arc()
   .startAngle(Math.PI / 2)
   .endAngle(Math.PI * 3 / 2);
 
-const BackgroundCircle = (props) => (
+const BackgroundCircle = ({ radius }) => (
   <circle
-    r={props.radius}
+    r={radius}
     fill='yellow'
     stroke='black'
     stroke-width={strokeWidth}
