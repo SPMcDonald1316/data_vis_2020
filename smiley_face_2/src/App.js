@@ -14,11 +14,15 @@ const eyeRadius = 40;
 const mouthWidth = 20;
 const mouthRadius = 140;
 
-const mouthArc = arc()
+const Mouth = ({mouthRadius, mouthWidth}) => {
+  const mouthArc = arc()
   .innerRadius(mouthRadius)
   .outerRadius(mouthRadius + mouthWidth)
   .startAngle(Math.PI / 2)
   .endAngle(Math.PI * 3 / 2);
+
+  return <path d={mouthArc()} />
+}
 
 function App() {
   return (
@@ -33,7 +37,7 @@ function App() {
           eyeOffsetY={eyeOffsetY} 
           eyeRadius={eyeRadius}
         ></Eyes>
-        <path d={mouthArc()} />
+        <Mouth mouthRadius={mouthRadius} mouthWidth={mouthWidth}></Mouth>
       </g>
     </svg>
   );
