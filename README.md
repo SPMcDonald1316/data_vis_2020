@@ -7,5 +7,7 @@ invisible_dots.html ~ Quick code warmup using HTML & CSS
 
 smiley_face_1 ~ Beginning smiley face using HTML, CSS, & SVG
 
-smiley_face_2 ~ Create React app to create smiley face
+smiley_face_2 
+~ Create React app to create smiley face, use d3 to create mouth
+~ Refactor using React components & ES6
 
