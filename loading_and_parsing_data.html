@@ -5,6 +5,12 @@
   </head>
   <body>
     <script>
+      const url = "https://gist.githubusercontent.com/SPMcDonald1316/c44c8efd90878b3c4032c3b642669e19/raw/cssNamedColors.csv"
+      fetch(url).then(response => {
+        response.text().then(text => {
+          console.log(text)
+        })
+      })
     </script>
   </body>
 </html>
