@@ -5,15 +5,17 @@
   </head>
   <body>
     <script>
-      const url = "https://gist.githubusercontent.com/SPMcDonald1316/c44c8efd90878b3c4032c3b642669e19/raw/cssNamedColors.csv"
+      const csvUrl = "https://gist.githubusercontent.com/SPMcDonald1316/c44c8efd90878b3c4032c3b642669e19/raw/cssNamedColors.csv"
 
       // ES6 version
-      const fetchText = async() => {
+      const fetchText = async(url) => {
         const response = await fetch(url);
-        const text = await response.text();
-        console.log(text);
+        return await response.text();
+       
       };
-      fetchText();
+      fetchText(csvUrl).then(text => {
+        console.log(text)
+      });
 
       // Old version
       // fetch(url).then(response => {
