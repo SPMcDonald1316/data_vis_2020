@@ -13,3 +13,5 @@ smiley_face_2
     Part 4 ~ Refactor using React components & ES6
     Part 5 ~ Use modules and react components to put parts of face into separate files
     Part 6 ~ Use react components to give page elements semantic meaning
+
+loading_and_parsing_data.html ~ simple HTML page to practice loading csv files
