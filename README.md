@@ -18,3 +18,8 @@ loading_and_parsing_data.html
     ~ simple HTML page to practice loading csv files
     ~ use fetch
     ~ use async / await 
+
+mouse_interaction
+    ~ program draws a circle and circle follows the mouse around the page
+    ~ covers mouse events, unidirectional data flow, the notion of "state", and React useState hook
+    
