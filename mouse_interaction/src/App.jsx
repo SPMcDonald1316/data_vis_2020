@@ -6,8 +6,13 @@ const circleX = width / 2;
 const circleY = height / 2;
 const circleRadius = 30;
 
+const handleMouseMove = (event) => {
+  const { clientX, clientY } = event;
+  console.log({clientX, clientY});
+};
+
 const App = () => (
-  <svg width={width} height={height}>
+  <svg width={width} height={height} onMouseMove={handleMouseMove}>
     <circle
       cx={circleX}
       cy={circleY}
