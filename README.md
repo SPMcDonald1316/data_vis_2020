@@ -25,6 +25,8 @@ mouse_interaction
     ~ program draws a circle and circle follows the mouse around the page
     ~ covers mouse events, unidirectional data flow, the notion of "state", and React useState hook
     
-parsing_csv_data_w_d3
-    ~ react app using d3 to load and parse data
+parsing_csv_data_w_d3.html
+    ~ parsing data using D3
+    ~ construct and display text using D3 and CSS
+    ~ use d3.csv, csvParse, and csvFormat
     
