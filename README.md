@@ -30,3 +30,5 @@ parsing_csv_data_w_d3.html
     ~ construct and display text using D3 and CSS
     ~ use d3.csv, csvParse, and csvFormat
     
+loading_data_into_react
+    ~ learn to load data into a react app
