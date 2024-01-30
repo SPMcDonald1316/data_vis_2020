@@ -23,3 +23,6 @@ mouse_interaction
     ~ program draws a circle and circle follows the mouse around the page
     ~ covers mouse events, unidirectional data flow, the notion of "state", and React useState hook
     
+load_and_parse_data_d3
+    ~ react app using d3 to load and parse data
+    
