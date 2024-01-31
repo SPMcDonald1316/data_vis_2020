@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import {csv, csvFormat} from 'd3';
 
@@ -16,12 +16,12 @@ const message = data => {
 const App = () => {
   const [data, setData] = useState(null);
 
-  csv(csvUrl).then(data => {
-    setData(data);
-  });
+  useEffect(() => {
+    csv(csvUrl).then(setData);
+  }, []);
 
   return (
-    <pre>Data is {data ? message(data) : 'loading'}</pre>
+    <pre>{data ? message(data) : 'loading'}</pre>
   );
 };
 
