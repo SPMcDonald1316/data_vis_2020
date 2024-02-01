@@ -32,3 +32,6 @@ parsing_csv_data_w_d3.html
     
 loading_data_into_react
     ~ learn to load data into a react app
+    ~ use d3 to load and parse the data
+    ~ use state to determine when the data is loaded and display appropriate message
+    ~ use React hook useEffect to make sure the data is only fetched once
