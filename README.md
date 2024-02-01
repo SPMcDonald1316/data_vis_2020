@@ -36,6 +36,6 @@ loading_data_into_react
     ~ use state to determine when the data is loaded and display appropriate message
     ~ use React hook useEffect to make sure the data is only fetched once
 
-iterating_fast_vega-lite-api
+iterating_fast_vla
     ~ project using vega lite api to quickly create visualizations from a template
     ~ uses d3 to load and parse the data
