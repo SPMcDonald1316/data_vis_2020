@@ -23,7 +23,7 @@
     }
   };
 
-  const csvURL = 'https://gist.githubusercontent.com/curran/90240a6d88bdb1411467b21ea0769029/raw/7d4c3914cc6a29a7f5165f7d5d82b735d97bcfe4/week_temperature_sf.csv';
+  const csvURL = 'https://gist.githubusercontent.com/curran/6cd1e224d76811b68df4/raw/12c93b2e53872d088331d939bdb790019f06dc32/populationByCountry2015.csv';
 
   const getData = async () => {
     const data = await d3.csv(csvURL);
@@ -33,11 +33,11 @@
     return data;
   };
 
-  const viz = vl.markArea({ size: 5, opacity: 1 })
+  const viz = vl.markBar()
     .encode(
-      vl.x().fieldT('timestamp'),
-      vl.y().fieldQ('temperature'),
-      vl.tooltip().fieldN('temperature')
+      vl.x().fieldN('country').sort('-y'),
+      vl.y().fieldQ('population'),
+      vl.tooltip().fieldN('population')
     );
 
   vl.register(vega, vegaLite, {

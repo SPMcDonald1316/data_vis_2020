@@ -1,7 +1,7 @@
 import vl from 'vega-lite-api';
-export const viz = vl.markArea({ size: 5, opacity: 1 })
+export const viz = vl.markBar()
   .encode(
-    vl.x().fieldT('timestamp'),
-    vl.y().fieldQ('temperature'),
-    vl.tooltip().fieldN('temperature')
+    vl.x().fieldN('country').sort('-y'),
+    vl.y().fieldQ('population'),
+    vl.tooltip().fieldN('population')
   );
