@@ -21,3 +21,4 @@ const run = async () => {
 
   document.body.appendChild(await marks.render());
 }
+run();
