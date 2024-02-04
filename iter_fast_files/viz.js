@@ -1,8 +1,7 @@
 import vl from 'vega-lite-api';
-export const viz = vl.markCircle({ size: 300, opacity: 0.5 })
+export const viz = vl.markArea({ size: 5, opacity: 1 })
   .encode(
-    vl.x().fieldQ('mpg').scale({ zero: false }),
-    vl.y().fieldQ('horsepower').scale({ zero: false }),
-    vl.color().fieldN('origin'),
-    vl.tooltip().fieldN('name')
+    vl.x().fieldT('timestamp'),
+    vl.y().fieldQ('temperature'),
+    vl.tooltip().fieldN('temperature')
   );

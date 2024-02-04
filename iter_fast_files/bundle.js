@@ -23,7 +23,7 @@
     }
   };
 
-  const csvURL = 'https://gist.githubusercontent.com/curran/9938078a93a4ba380a0e/raw/8c489c0c1855c00f702f27c7546037e2941ae549/auto-mpg.csv';
+  const csvURL = 'https://gist.githubusercontent.com/curran/90240a6d88bdb1411467b21ea0769029/raw/7d4c3914cc6a29a7f5165f7d5d82b735d97bcfe4/week_temperature_sf.csv';
 
   const getData = async () => {
     const data = await d3.csv(csvURL);
@@ -33,12 +33,11 @@
     return data;
   };
 
-  const viz = vl.markCircle({ size: 300, opacity: 0.5 })
+  const viz = vl.markArea({ size: 5, opacity: 1 })
     .encode(
-      vl.x().fieldQ('mpg').scale({ zero: false }),
-      vl.y().fieldQ('horsepower').scale({ zero: false }),
-      vl.color().fieldN('origin'),
-      vl.tooltip().fieldN('name')
+      vl.x().fieldT('timestamp'),
+      vl.y().fieldQ('temperature'),
+      vl.tooltip().fieldN('temperature')
     );
 
   vl.register(vega, vegaLite, {
