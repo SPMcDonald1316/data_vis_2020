@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { csv } from 'd3';
-import { message } from './message'
 
 const csvUrl = 'https://gist.githubusercontent.com/curran/b236990081a24761f7000567094914e0/raw/acd2b8cecfe51c520622fbaf407ee88b8796bfc6/cssNamedColors.csv'
 
@@ -11,7 +10,18 @@ const App = () => {
     csv(csvUrl).then(setData);
   }, []);
 
-  return <pre>{data ? message(data) : 'Loading...'}</pre>
+  if(!data) {
+    return <pre>Loading...</pre>;
+  }
+  return data.map(d => (
+    <div
+      style={{
+        backgroundColor: d['RGB hex value'],
+        width: '960px',
+        height: '4px'
+      }}
+    />
+  ))
 }
 
 export default App
