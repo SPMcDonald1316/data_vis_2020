@@ -41,3 +41,7 @@ iterating_fast_files
     ~ uses d3 to load and parse the data
     ~ use rollup to bundle
     ~ create several visualizations using different styles / data
+
+visualize_data_react_d3
+    ~ begin to create visualizations within react app
+    ~ use d3 to load / parse data
