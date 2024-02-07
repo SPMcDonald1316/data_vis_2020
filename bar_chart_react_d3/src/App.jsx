@@ -13,7 +13,9 @@ function App() {
       d.Population = +d['2020'];
       return d;
     }
-    csv(csvUrl, row).then(setData);
+    csv(csvUrl, row).then(data => {
+      setData(data.slice(0, 10))
+    });
   }, []);
 
   if(!data) {
@@ -33,7 +35,7 @@ function App() {
       {data.map(d => (
         <rect 
           x={0} 
-          y={yScale} 
+          y={yScale(d.Country)} 
           width={xScale(d.Population)} 
           height={yScale.bandwidth()}
         />))}
