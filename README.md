@@ -46,3 +46,9 @@ Hosted on FreeCodeCamp Youtube Channel
     - use react and d3 to create a radial outburst of CSS Named Colors  
     - load and parse data with d3.csv 
     - use arc and pie functions to create radial outburst
+
+- bar_chart_react_d3  
+    - react app creating a bar chart using UN Population data  
+    - use d3.csv to load and parse data  
+    - use scaleBand and scaleLinear to create bar elements from data  
+    - implement the margin convention to add axis space
