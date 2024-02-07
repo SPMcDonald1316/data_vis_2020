@@ -43,5 +43,6 @@ Hosted on FreeCodeCamp Youtube Channel
     - create several visualizations using different styles / data  
 
 - visualize_data_react_d3  
-    - begin to create visualizations within react app  
-    - use d3 to load / parse data  
+    - use react and d3 to create a radial outburst of CSS Named Colors  
+    - load and parse data with d3.csv 
+    - use arc and pie functions to create radial outburst
