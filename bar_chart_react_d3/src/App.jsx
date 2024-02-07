@@ -38,6 +38,14 @@ function App() {
   return (
     <svg width={width} height={height}>
       <g transform={`translate(${margin.left}, ${margin.top})`}>
+        {xScale.ticks().map(tickValue => (
+          <g transform={`translate(${xScale(tickValue)}, 0)`}>
+            <line
+              y2={innerHeight}
+              stroke='black' 
+            />
+          </g>
+        ))}
         {data.map(d => (
           <rect 
             x={0} 
