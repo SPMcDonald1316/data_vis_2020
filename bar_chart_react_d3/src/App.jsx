@@ -50,6 +50,16 @@ function App() {
             </text>
           </g>
         ))}
+        {yScale.domain().map(tickValue => (
+          <text
+            style={{textAnchor: 'end'}}
+            dy='.32em'
+            x={-3}
+            y={yScale(tickValue) + yScale.bandwidth() / 2}
+          >
+            {tickValue}
+          </text>
+        ))}
         {data.map(d => (
           <rect 
             x={0} 
