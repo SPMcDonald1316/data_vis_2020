@@ -39,7 +39,7 @@ function App() {
     <svg width={width} height={height}>
       <g transform={`translate(${margin.left}, ${margin.top})`}>
         {xScale.ticks().map(tickValue => (
-          <g transform={`translate(${xScale(tickValue)}, 0)`}>
+          <g key={tickValue} transform={`translate(${xScale(tickValue)}, 0)`}>
             <line y2={innerHeight} stroke='black' />
             <text 
               style={{textAnchor: 'middle'}} 
@@ -52,6 +52,7 @@ function App() {
         ))}
         {yScale.domain().map(tickValue => (
           <text
+            key={tickValue}
             style={{textAnchor: 'end'}}
             dy='.32em'
             x={-3}
@@ -62,6 +63,7 @@ function App() {
         ))}
         {data.map(d => (
           <rect 
+            key={d.Country}
             x={0} 
             y={yScale(d.Country)} 
             width={xScale(d.Population)} 
