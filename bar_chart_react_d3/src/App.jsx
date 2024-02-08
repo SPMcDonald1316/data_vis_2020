@@ -1,24 +1,12 @@
-import { useEffect, useState } from 'react'
-import { csv, scaleBand, scaleLinear, max } from 'd3';
-
-const csvUrl = 'https://gist.githubusercontent.com/curran/0ac4077c7fc6390f5dd33bf5c06cb5ff/raw/605c54080c7a93a417a3cea93fd52e7550e76500/UN_Population_2019.csv';
+import { scaleBand, scaleLinear, max } from 'd3';
+import { useData } from './useData';
 
 const width = window.innerWidth;
 const height = window.innerHeight;
 const margin = { top: 20, right: 20, bottom: 20, left: 200};
 
 function App() {
-  const [data, setData] = useState(null)
-
-  useEffect(() => {
-    const row = d => {
-      d.Population = +d['2020'];
-      return d;
-    }
-    csv(csvUrl, row).then(data => {
-      setData(data.slice(0, 10))
-    });
-  }, []);
+  const data = useData();
 
   if(!data) {
     return <div>Loading...</div>
