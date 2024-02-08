@@ -1,6 +1,7 @@
 import { scaleBand, scaleLinear, max } from 'd3';
 import { useData } from './useData';
 import { AxisBottom } from './AxisBottom.jsx';
+import { AxisLeft } from './AxisLeft.jsx';
 
 const width = window.innerWidth;
 const height = window.innerHeight;
@@ -28,7 +29,7 @@ function App() {
     <svg width={width} height={height}>
       <g transform={`translate(${margin.left}, ${margin.top})`}>
         <AxisBottom xScale={xScale} innerHeight={innerHeight} />
-        <AxisLeft />
+        <AxisLeft yScale={yScale} />
         {data.map(d => (
           <rect 
             key={d.Country}
