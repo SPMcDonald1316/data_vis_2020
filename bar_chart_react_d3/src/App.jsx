@@ -7,6 +7,8 @@ import { Marks } from './Marks.jsx';
 const width = window.innerWidth;
 const height = window.innerHeight;
 const margin = { top: 20, right: 20, bottom: 20, left: 200};
+const xValue = d => d.Population
+const yValue = d => d.Country
 
 function App() {
   const data = useData();
@@ -19,11 +21,11 @@ function App() {
   const innerWidth = width - margin.left - margin.right
 
   const yScale = scaleBand()
-    .domain(data.map(d => d.Country))
+    .domain(data.map(yValue))
     .range([0, innerHeight]);
 
   const xScale = scaleLinear()
-    .domain([0, max(data, d => d.Population)])
+    .domain([0, max(data, xValue)])
     .range([0, innerWidth]);
 
   return (
@@ -31,7 +33,13 @@ function App() {
       <g transform={`translate(${margin.left}, ${margin.top})`}>
         <AxisBottom xScale={xScale} innerHeight={innerHeight} />
         <AxisLeft yScale={yScale} />
-        <Marks data={data} xScale={xScale} yScale={yScale} />
+        <Marks 
+          data={data} 
+          xScale={xScale} 
+          yScale={yScale} 
+          xValue={xValue} 
+          yValue={yValue}
+        />
       </g>
     </svg>
   )
