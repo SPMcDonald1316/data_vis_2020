@@ -5,7 +5,7 @@ const csvUrl = 'https://gist.githubusercontent.com/curran/0ac4077c7fc6390f5dd33b
 
 const width = window.innerWidth;
 const height = window.innerHeight;
-const margin = { top: 20, right: 20, bottom: 20, left: 20};
+const margin = { top: 20, right: 20, bottom: 20, left: 200};
 
 function App() {
   const [data, setData] = useState(null)
@@ -40,10 +40,14 @@ function App() {
       <g transform={`translate(${margin.left}, ${margin.top})`}>
         {xScale.ticks().map(tickValue => (
           <g transform={`translate(${xScale(tickValue)}, 0)`}>
-            <line
-              y2={innerHeight}
-              stroke='black' 
-            />
+            <line y2={innerHeight} stroke='black' />
+            <text 
+              style={{textAnchor: 'middle'}} 
+              y={innerHeight + 3}
+              dy='.71em'
+            >
+              {tickValue}
+            </text>
           </g>
         ))}
         {data.map(d => (
