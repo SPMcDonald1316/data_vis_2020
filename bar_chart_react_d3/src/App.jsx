@@ -1,5 +1,6 @@
 import { scaleBand, scaleLinear, max } from 'd3';
 import { useData } from './useData';
+import { AxisBottom } from './AxisBottom.jsx';
 
 const width = window.innerWidth;
 const height = window.innerHeight;
@@ -26,29 +27,8 @@ function App() {
   return (
     <svg width={width} height={height}>
       <g transform={`translate(${margin.left}, ${margin.top})`}>
-        {xScale.ticks().map(tickValue => (
-          <g key={tickValue} transform={`translate(${xScale(tickValue)}, 0)`}>
-            <line y2={innerHeight} stroke='black' />
-            <text 
-              style={{textAnchor: 'middle'}} 
-              y={innerHeight + 3}
-              dy='.71em'
-            >
-              {tickValue}
-            </text>
-          </g>
-        ))}
-        {yScale.domain().map(tickValue => (
-          <text
-            key={tickValue}
-            style={{textAnchor: 'end'}}
-            dy='.32em'
-            x={-3}
-            y={yScale(tickValue) + yScale.bandwidth() / 2}
-          >
-            {tickValue}
-          </text>
-        ))}
+        <AxisBottom xScale={xScale} innerHeight={innerHeight} />
+        <AxisLeft />
         {data.map(d => (
           <rect 
             key={d.Country}
