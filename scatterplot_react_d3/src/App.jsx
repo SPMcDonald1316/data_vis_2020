@@ -43,6 +43,7 @@ const App = () => {
           xScale={xScale}
           innerHeight={innerHeight}
           tickFormat={xAxisTickFormat}
+          tickOffset={7}
         />
 
         <text
@@ -53,7 +54,7 @@ const App = () => {
           {yAxisLabel}
         </text>
 
-        <AxisLeft yScale={yScale} innerWidth={innerWidth}/>
+        <AxisLeft yScale={yScale} innerWidth={innerWidth} tickOffset={7}/>
 
         <text
           className='axis-label'
@@ -70,7 +71,8 @@ const App = () => {
           yScale={yScale}
           xValue={xValue}
           yValue={yValue}
-          tooltipFormat={xAxisTickFormat} 
+          tooltipFormat={xAxisTickFormat}
+          circleRadius={7}
         />
       </g>
     </svg>
