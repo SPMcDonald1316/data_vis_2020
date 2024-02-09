@@ -4,15 +4,17 @@ import { AxisBottom } from './AxisBottom.jsx';
 import { AxisLeft } from './AxisLeft.jsx';
 import { Marks } from './Marks.jsx';
 
-// Variables
 const width = window.innerWidth;
 const height = window.innerHeight;
-const margin = { top: 20, right: 30, bottom: 65, left: 220};
+const margin = { top: 20, right: 30, bottom: 65, left: 90};
 const xAxisLabelOffset = 50;
+const yAxisLabelOffset = 40;
 
-// Accessor Functions
 const xValue = d => d.sepal_length;
+const xAxisLabel = 'Sepal Length';
+
 const yValue = d => d.sepal_width;
+const yAxisLabel = 'Sepal Width';
 
 const App = () => {
   const data = useData();
@@ -27,7 +29,8 @@ const App = () => {
 
   const xScale = scaleLinear()
     .domain(extent(data, xValue))
-    .range([0, innerWidth]);
+    .range([0, innerWidth])
+    .nice();
 
   const yScale = scaleLinear()
     .domain(extent(data, yValue))
@@ -42,6 +45,14 @@ const App = () => {
           tickFormat={xAxisTickFormat}
         />
 
+        <text
+          className='axis-label'
+          textAnchor='middle'
+          transform={`translate(${-yAxisLabelOffset}, ${innerHeight / 2}) rotate(-90)`}
+        >
+          {yAxisLabel}
+        </text>
+
         <AxisLeft yScale={yScale} innerWidth={innerWidth}/>
 
         <text
@@ -50,7 +61,7 @@ const App = () => {
           textAnchor='middle'
           y={innerHeight + xAxisLabelOffset}
         >
-          Population
+          {xAxisLabel}
         </text>
 
         <Marks
