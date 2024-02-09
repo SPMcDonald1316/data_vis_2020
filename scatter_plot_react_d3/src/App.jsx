@@ -1,4 +1,4 @@
-import { scaleBand, scaleLinear, max, format } from 'd3';
+import { scaleLinear, format, extent } from 'd3';
 import { useData } from './useData';
 import { AxisBottom } from './AxisBottom.jsx';
 import { AxisLeft } from './AxisLeft.jsx';
@@ -11,8 +11,8 @@ const margin = { top: 20, right: 30, bottom: 65, left: 220};
 const xAxisLabelOffset = 50;
 
 // Accessor Functions
-const xValue = d => d.Population;
-const yValue = d => d.Country;
+const xValue = d => d.sepal_length;
+const yValue = d => d.sepal_width;
 
 const App = () => {
   const data = useData();
@@ -25,14 +25,13 @@ const App = () => {
   const siFormat = format('.2s');
   const xAxisTickFormat = tickValue => siFormat(tickValue).replace('G', 'B');
 
-  const yScale = scaleBand()
-    .domain(data.map(yValue))
-    .range([0, innerHeight])
-    .paddingInner(0.1);
-
   const xScale = scaleLinear()
-    .domain([0, max(data, xValue)])
+    .domain(extent(data, xValue))
     .range([0, innerWidth]);
+
+  const yScale = scaleLinear()
+    .domain(extent(data, yValue))
+    .range([0, innerHeight]);
 
   return (
     <svg width={width} height={height}>
