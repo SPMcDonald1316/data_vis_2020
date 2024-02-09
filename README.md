@@ -51,4 +51,6 @@ Hosted on FreeCodeCamp Youtube Channel
     - react app creating a bar chart using UN Population data  
     - use d3.csv to load and parse data  
     - use scaleBand and scaleLinear to create bar elements from data  
-    - implement the margin convention to add axis space
+    - implement the margin convention to add axis space  
+    - use ticks function to add tick marks and / or labels to x & y axis  
+    - add styling and formatting
