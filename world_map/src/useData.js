@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { json } from "d3";
-import { feature } from "topojson";
+import { feature,  mesh } from "topojson";
 
 const jsonUrl = 'https://unpkg.com/world-atlas@2.0.2/countries-50m.json';
 
@@ -8,9 +8,12 @@ export const useData = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    json(jsonUrl).then(topojsonData => {
-      const { countries } = topojsonData.objects;
-      setData(feature(topojsonData, countries));
+    json(jsonUrl).then(topology => {
+      const { countries, land } = topology.objects;
+      setData({
+        land: feature(topology, land),
+        interiors: mesh(topology, countries, (a, b) => a !== b )
+      });
     });
   }, [])
 
