@@ -19,6 +19,7 @@ pre {
   stroke: #137b80;
   stroke-width: 5;
   stroke-linejoin: round;
+  stroke-linecap: round;
   fill: none;
 }
 .axis-label {
