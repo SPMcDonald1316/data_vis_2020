@@ -1,7 +1,8 @@
+import { useState } from 'react';
 import './App.css';
 
-const Dropdown = ({options, id}) => (
-  <select id={id}>
+const Dropdown = ({options, id, onSelectedValueChange}) => (
+  <select id={id} onChange={event => onSelectedValueChange(event.target.value)}>
       <option value="">--Please choose an option--</option>
       { options.map(({value, label}, index) => (
         <option key={index} value={value}>{label}</option>
@@ -18,12 +19,14 @@ const options = [
   {value: 'goldfish', label: 'Goldfish'}
 ];
 
-const App = () => (
+const App = () => {
+  const [selectedValue, setSelectedValue] = useState();
+  return (
   <div>
     <label htmlFor="pet-select">Choose a pet: </label>
 
-    <Dropdown options={options} id="pet-select" />
+    <Dropdown options={options} id="pet-select" onSelectedValueChange={setSelectedValue} />
   </div>
-);
+)};
 
 export default App
