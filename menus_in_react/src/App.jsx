@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import './App.css';
 
-const Dropdown = ({options, id, onSelectedValueChange}) => (
-  <select id={id} onChange={event => onSelectedValueChange(event.target.value)}>
-      <option value="">--Please choose an option--</option>
-      { options.map(({value, label}, index) => (
-        <option key={index} value={value}>{label}</option>
-      ))}
+const Dropdown = ({options, id, selectedValue, onSelectedValueChange}) => (
+  <select id={id} defaultValue={selectedValue} onChange={event => onSelectedValueChange(event.target.value)}>
+    { options.map(({value, label}, index) => (
+      <option key={index} value={value}>{label}</option>
+    ))}
     </select>
 );
 
@@ -19,13 +18,20 @@ const options = [
   {value: 'goldfish', label: 'Goldfish'}
 ];
 
+const initialValue = 'hamster'
+
 const App = () => {
-  const [selectedValue, setSelectedValue] = useState();
+  const [selectedValue, setSelectedValue] = useState(initialValue);
   return (
   <div>
     <label htmlFor="pet-select">Choose a pet: </label>
 
-    <Dropdown options={options} id="pet-select" onSelectedValueChange={setSelectedValue} />
+    <Dropdown 
+      options={options} 
+      id="pet-select" 
+      selectedValue={selectedValue}
+      onSelectedValueChange={setSelectedValue} 
+    />
   </div>
 )};
 
