@@ -1,6 +1,6 @@
 import { scaleLinear, format, extent } from "d3";
 import useData from "./useData";
-import AxisBottom from "./Axisbottom.jsx";
+import AxisBottom from "./AxisBottom.jsx";
 import AxisLeft from "./AxisLeft.jsx";
 import Marks from "./Marks.jsx";
 
