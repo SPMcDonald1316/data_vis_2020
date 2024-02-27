@@ -3,6 +3,7 @@ import useData from "./useData";
 import AxisBottom from "./AxisBottom.jsx";
 import AxisLeft from "./AxisLeft.jsx";
 import Marks from "./Marks.jsx";
+import Dropdown from "./Dropdown.jsx";
 
 const width = window.innerWidth;
 const height = window.innerHeight;
@@ -37,44 +38,53 @@ const App = () => {
     .range([0, innerHeight]);
 
   return (
-    <svg width={width} height={height}>
-      <g transform={`translate(${margin.left}, ${margin.top})`}>
-        <AxisBottom
-          xScale={xScale}
-          innerHeight={innerHeight}
-          tickFormat={xAxisTickFormat}
-          tickOffset={7}
-        />
-        <text
-          className="axis-label"
-          textAnchor="middle"
-          transform={`translate(${-yAxisLabelOffset}, ${innerHeight / 2}) rotate(-90)`}
-        >
-          {yAxisLabel}
-        </text>
+    <>
+      <label htmlFor="x-select">X:</label>
+      <Dropdown
+        options={options}
+        id="x-select"
+        selectedValue={selectedXValue}
+        onSelectedValueChange={setSelectedXValue}
+      />
+      <svg width={width} height={height}>
+        <g transform={`translate(${margin.left}, ${margin.top})`}>
+          <AxisBottom
+            xScale={xScale}
+            innerHeight={innerHeight}
+            tickFormat={xAxisTickFormat}
+            tickOffset={7}
+          />
+          <text
+            className="axis-label"
+            textAnchor="middle"
+            transform={`translate(${-yAxisLabelOffset}, ${innerHeight / 2}) rotate(-90)`}
+          >
+            {yAxisLabel}
+          </text>
 
-        <AxisLeft yScale={yScale} innerWidth={innerWidth} tickOffset={7}/>
+          <AxisLeft yScale={yScale} innerWidth={innerWidth} tickOffset={7}/>
 
-        <text
-          className="axis-label"
-          x={innerWidth / 2}
-          textAnchor="middle"
-          y={innerHeight + xAxisLabelOffset}
-        >
-          {xAxisLabel}
-        </text>
+          <text
+            className="axis-label"
+            x={innerWidth / 2}
+            textAnchor="middle"
+            y={innerHeight + xAxisLabelOffset}
+          >
+            {xAxisLabel}
+          </text>
 
-        <Marks
-          data={data}
-          xScale={xScale}
-          yScale={yScale}
-          xValue={xValue}
-          yValue={yValue}
-          tooltipFormat={xAxisTickFormat}
-          circleRadius={7}
-        />
-      </g>
-    </svg>
+          <Marks
+            data={data}
+            xScale={xScale}
+            yScale={yScale}
+            xValue={xValue}
+            yValue={yValue}
+            tooltipFormat={xAxisTickFormat}
+            circleRadius={7}
+          />
+        </g>
+      </svg>
+    </>
   )
 }
 
