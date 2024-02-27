@@ -21,6 +21,11 @@ const App = () => {
   const xValue = d => d[xAttribute];
   const xAxisLabel = 'Sepal Length';
 
+  const initialYAttribute = 'sepal_length';
+  const [yAttribute, setYAttribute] = useState(initialYAttribute);
+  const yValue = d => d[yAttribute];
+  const yAxisLabel = 'Sepal Width';
+
   if (!data) return <div>Loading...</div>;
 
   const innerHeight = height - margin.top - margin.bottom;
@@ -34,9 +39,6 @@ const App = () => {
     {value: 'species', label: 'Species'}
   ];
   
-  const yValue = d => d.sepal_width;
-  const yAxisLabel = 'Sepal Width';
-
   const siFormat = format('.2s');
   const xAxisTickFormat = tickValue => siFormat(tickValue).replace('G', 'B');
 
@@ -57,6 +59,14 @@ const App = () => {
         id="x-select"
         selectedValue={xAttribute}
         onSelectedValueChange={setXAttribute}
+      />
+
+      <label htmlFor="y-select">Y:</label>
+      <Dropdown 
+        options={attributes}
+        id="y-select"
+        selectedValue={yAttribute}
+        onSelectedValueChange={setYAttribute}
       />
       <svg width={width} height={height}>
         <g transform={`translate(${margin.left}, ${margin.top})`}>
