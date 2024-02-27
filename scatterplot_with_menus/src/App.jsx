@@ -4,6 +4,7 @@ import AxisBottom from "./AxisBottom.jsx";
 import AxisLeft from "./AxisLeft.jsx";
 import Marks from "./Marks.jsx";
 import Dropdown from "./Dropdown.jsx";
+import { useState } from "react";
 
 const width = window.innerWidth;
 const height = window.innerHeight;
@@ -11,19 +12,29 @@ const margin = { top: 20, right: 30, bottom: 65, left: 90 };
 const xAxisLabelOffset = 50;
 const yAxisLabelOffset = 40;
 
-const xValue = d => d.sepal_length;
-const xAxisLabel = 'Sepal Length';
-
-const yValue = d => d.sepal_width;
-const yAxisLabel = 'Sepal Width';
-
 const App = () => {
   const data = useData();
+
+  const initialXAttribute = 'sepal_length';
+  const [xAttribute, setXAttribute] = useState(initialXAttribute);
+  const xValue = d => d[xAttribute];
+  const xAxisLabel = 'Sepal Length';
 
   if (!data) return <div>Loading...</div>;
 
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
+
+  const attributes = [
+    {value: 'sepal_length', label: 'Sepal Length'},
+    {value: 'sepal_width', label: 'Sepal Width'},
+    {value: 'petal_length', label: 'Petal Length'},
+    {value: 'petal_width', label: 'Petal Width'},
+    {value: 'species', label: 'Species'}
+  ];
+  
+  const yValue = d => d.sepal_width;
+  const yAxisLabel = 'Sepal Width';
 
   const siFormat = format('.2s');
   const xAxisTickFormat = tickValue => siFormat(tickValue).replace('G', 'B');
@@ -41,10 +52,10 @@ const App = () => {
     <>
       <label htmlFor="x-select">X:</label>
       <Dropdown
-        options={options}
+        options={attributes}
         id="x-select"
-        selectedValue={selectedXValue}
-        onSelectedValueChange={setSelectedXValue}
+        selectedValue={xAttribute}
+        onSelectedValueChange={setXAttribute}
       />
       <svg width={width} height={height}>
         <g transform={`translate(${margin.left}, ${margin.top})`}>
