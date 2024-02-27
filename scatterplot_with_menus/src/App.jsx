@@ -7,7 +7,8 @@ import Dropdown from "./Dropdown.jsx";
 import { useState } from "react";
 
 const width = window.innerWidth;
-const height = window.innerHeight;
+const menuHeight = 75;
+const height = window.innerHeight - menuHeight;
 const margin = { top: 20, right: 30, bottom: 65, left: 90 };
 const xAxisLabelOffset = 50;
 const yAxisLabelOffset = 40;
