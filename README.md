@@ -52,5 +52,29 @@ Hosted on FreeCodeCamp Youtube Channel
     - use d3.csv to load and parse data  
     - use scaleBand and scaleLinear to create bar elements from data  
     - implement the margin convention to add axis space  
-    - use ticks function to add tick marks and / or labels to x & y axis  
-    - add styling and formatting
+    - use ticks function to add tick marks and / or labels to x & y axis   
+
+- scatterplot_react_d3  
+    - react app creating a scatterplot using the Iris dataset  
+    - use d3.csv to fetch and parse data  
+    - use d3.scaleLinear to create x and y axis scales  
+
+- line_chart_react_d3  
+    - react app creating line chart using temperature data  
+    - use d3 to fetch and parse data  
+    - scaleTime & timeFormat to deal with timeline data for x-axis  
+    - scaleLinear for temp data on y-axis  
+
+- world_map  
+    - create a world map from world atlas json data  
+    - use d3 json to parse the data  
+    - use topojson library to convert data from topojson to geojson  
+    - use svg paths to create the outlines of countries from the geojson data  
+
+- menus_in_react  
+    - react project creating menu component 
+    - use select and option html elements to create menu  
+
+- scatterplot_with_menus  
+    - add menus to scatterplot from previous project  
+    - menus allow user to dynamically change x and y axis data
