@@ -3,7 +3,6 @@ import useData from "./useData";
 import AxisBottom from "./AxisBottom.jsx";
 import AxisLeft from "./AxisLeft.jsx";
 import Marks from "./Marks.jsx";
-import Dropdown from "./Dropdown.jsx";
 import { useState } from "react";
 import ReactDropdown from "react-dropdown";
 import "react-dropdown/style.css";
