@@ -20,6 +20,17 @@ pre {
   fill: #635f5d;
   color: #635f5d;
 }
+.menus-container {
+  margin-top: 20px;
+  margin-right: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dropdown-label {
+  margin-left: 100px;
+  margin-right: 15px;
+}
 .Dropdown-root {
   font-size: 1.5em;
   width: 300px;
