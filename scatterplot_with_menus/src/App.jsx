@@ -5,6 +5,8 @@ import AxisLeft from "./AxisLeft.jsx";
 import Marks from "./Marks.jsx";
 import Dropdown from "./Dropdown.jsx";
 import { useState } from "react";
+import ReactDropdown from "react-dropdown";
+import "react-dropdown/style.css";
 
 const width = window.innerWidth;
 const menuHeight = 75;
@@ -62,19 +64,19 @@ const App = () => {
   return (
     <>
       <label htmlFor="x-select">X:</label>
-      <Dropdown
+      <ReactDropdown
         options={attributes}
         id="x-select"
         selectedValue={xAttribute}
-        onSelectedValueChange={setXAttribute}
+        onChange={({value}) => setXAttribute(value)}
       />
 
       <label htmlFor="y-select">Y:</label>
-      <Dropdown 
+      <ReactDropdown 
         options={attributes}
         id="y-select"
         selectedValue={yAttribute}
-        onSelectedValueChange={setYAttribute}
+        onChange={({value}) => setYAttribute(value)}
       />
       <svg width={width} height={height}>
         <g transform={`translate(${margin.left}, ${margin.top})`}>

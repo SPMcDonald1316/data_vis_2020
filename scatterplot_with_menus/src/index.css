@@ -25,3 +25,7 @@ label, select {
 select option {
   font-size: 1rem;
 }
+.Dropdown-root {
+  width: 300px;
+  display: inline-block;
+}
