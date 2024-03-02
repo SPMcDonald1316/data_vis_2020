@@ -133,7 +133,19 @@ const App = () => {
               onHover={setHoveredValue}
             />
           </g>
-
+          <g opacity={ hoveredValue ? 0.2 : 1}>
+            <Marks
+              data={data}
+              xScale={xScale}
+              yScale={yScale}
+              colorScale={colorScale}
+              xValue={xValue}
+              yValue={yValue}
+              colorValue={colorValue}
+              tooltipFormat={xAxisTickFormat}
+              circleRadius={circleRadius}
+            />
+          </g>
           <Marks
             data={filteredData}
             xScale={xScale}

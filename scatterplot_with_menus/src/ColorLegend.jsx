@@ -5,6 +5,7 @@ const ColorLegend = ({colorScale, tickSpacing = 20, tickSize = 10, tickTextOffse
       className="tick" 
       transform={`translate(0, ${i * tickSpacing})`}
       onMouseEnter={() => { onHover(domainValue); }}
+      onMouseOut={() => { onHover(null); }}
     >
       <circle fill={colorScale(domainValue)} r={tickSize} />
       <text x={tickTextOffset} dy=".32em">{domainValue}</text>
