@@ -64,7 +64,7 @@ const App = () => {
 
   const colorScale = scaleOrdinal()
     .domain(data.map(colorValue))
-    .range(['#e6842a', '#137b80', '#8e6c8a']);
+    .range(['#e6842a', '#d36876', '#8e6c8a']);
 
   return (
     <>
