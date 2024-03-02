@@ -15,17 +15,16 @@ pre {
 .mark {
   fill: #137b80;
 }
-.axis-label {
+.axis-label, .dropdown-label {
   font-size: 2.5em;
   fill: #635f5d;
-}
-label, select {
-  font-size: 3em;
-}
-select option {
-  font-size: 1rem;
+  color: #635f5d;
 }
 .Dropdown-root {
+  font-size: 1.5em;
   width: 300px;
   display: inline-block;
+}
+.Dropdown-menu {
+  max-height: 400px;
 }

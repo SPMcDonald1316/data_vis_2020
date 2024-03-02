@@ -63,18 +63,16 @@ const App = () => {
 
   return (
     <>
-      <label htmlFor="x-select">X:</label>
+      <span className="dropdown-label">X:</span>
       <ReactDropdown
         options={attributes}
-        id="x-select"
         selectedValue={xAttribute}
         onChange={({value}) => setXAttribute(value)}
       />
 
-      <label htmlFor="y-select">Y:</label>
+      <span className="dropdown-label">Y:</span>
       <ReactDropdown 
         options={attributes}
-        id="y-select"
         selectedValue={yAttribute}
         onChange={({value}) => setYAttribute(value)}
       />
