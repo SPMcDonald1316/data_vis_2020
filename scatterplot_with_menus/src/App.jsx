@@ -13,6 +13,7 @@ const height = window.innerHeight;
 const margin = { top: 20, right: 200, bottom: 150, left: 110 };
 const xAxisLabelOffset = 60;
 const yAxisLabelOffset = 60;
+const fadeOpacity = 0.2;
 
 const attributes = [
   {value: 'sepal_length', label: 'Sepal Length'},
@@ -131,9 +132,11 @@ const App = () => {
               tickSize={circleRadius}
               tickTextOffset={12}
               onHover={setHoveredValue}
+              hoveredValue={hoveredValue}
+              fadeOpacity={fadeOpacity}
             />
           </g>
-          <g opacity={ hoveredValue ? 0.2 : 1}>
+          <g opacity={ hoveredValue ? fadeOpacity : 1}>
             <Marks
               data={data}
               xScale={xScale}
