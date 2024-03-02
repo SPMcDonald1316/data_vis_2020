@@ -9,11 +9,11 @@ import "react-dropdown/style.css";
 import ColorLegend from "./ColorLegend.jsx";
 
 const width = window.innerWidth;
-const menuHeight = 75;
-const height = window.innerHeight - menuHeight;
-const margin = { top: 20, right: 30, bottom: 65, left: 90 };
-const xAxisLabelOffset = 50;
-const yAxisLabelOffset = 40;
+const height = window.innerHeight;
+const legend = { width: 100, height: 100 }
+const margin = { top: 20, right: 200, bottom: 150, left: 110 };
+const xAxisLabelOffset = 60;
+const yAxisLabelOffset = 60;
 
 const attributes = [
   {value: 'sepal_length', label: 'Sepal Length'},
@@ -44,7 +44,10 @@ const App = () => {
   const yValue = d => d[yAttribute];
   const yAxisLabel = getLabel(yAttribute);
 
-  const colorValue = d => d.species
+  const colorValue = d => d.species;
+  const colorLegendLabel = 'Species'
+
+  const circleRadius = 7;
 
   if (!data) return <div>Loading...</div>;
 
@@ -111,9 +114,22 @@ const App = () => {
             {xAxisLabel}
           </text>
 
-          <ColorLegend
-            colorScale={colorScale}
-          />
+          <g className="tick" transform={`translate(${innerWidth + 60}, 60)`}>
+            <text
+              x={35}
+              y={-25}
+              className="axis-label"
+              textAnchor="middle"
+            >
+              {colorLegendLabel}
+            </text>
+            <ColorLegend
+              colorScale={colorScale}
+              tickSpacing={22}
+              tickSize={circleRadius}
+              tickTextOffset={12}
+            />
+          </g>
 
           <Marks
             data={data}
@@ -124,7 +140,7 @@ const App = () => {
             yValue={yValue}
             colorValue={colorValue}
             tooltipFormat={xAxisTickFormat}
-            circleRadius={7}
+            circleRadius={circleRadius}
           />
         </g>
       </svg>
