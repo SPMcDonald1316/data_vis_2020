@@ -76,5 +76,9 @@
 * use select and option html elements to create menu  
 
 #### scatterplot_with_menus  
-* add menus to scatterplot from previous project  
+* add menus to scatterplot from previous project 
+* use react-dropdown to create dropdown menus 
 * menus allow user to dynamically change x and y axis data
+* add color to plotted points based on iris species type
+* add legend to show color & species
+* add hover functionality to allow user to view specific species
