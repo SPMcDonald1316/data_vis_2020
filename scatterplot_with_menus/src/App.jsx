@@ -6,6 +6,7 @@ import Marks from "./Marks.jsx";
 import { useState } from "react";
 import ReactDropdown from "react-dropdown";
 import "react-dropdown/style.css";
+import ColorLegend from "./ColorLegend.jsx";
 
 const width = window.innerWidth;
 const menuHeight = 75;
@@ -109,6 +110,8 @@ const App = () => {
           >
             {xAxisLabel}
           </text>
+
+          <ColorLegend />
 
           <Marks
             data={data}
