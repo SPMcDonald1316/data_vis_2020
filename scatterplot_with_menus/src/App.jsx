@@ -10,7 +10,6 @@ import ColorLegend from "./ColorLegend.jsx";
 
 const width = window.innerWidth;
 const height = window.innerHeight;
-const legend = { width: 100, height: 100 }
 const margin = { top: 20, right: 200, bottom: 150, left: 110 };
 const xAxisLabelOffset = 60;
 const yAxisLabelOffset = 60;
@@ -33,6 +32,7 @@ const getLabel = value => {
 
 const App = () => {
   const data = useData();
+  const [hoveredValue, setHoveredValue] = useState(null);
 
   const initialXAttribute = 'sepal_length';
   const [xAttribute, setXAttribute] = useState(initialXAttribute);
@@ -50,6 +50,8 @@ const App = () => {
   const circleRadius = 7;
 
   if (!data) return <div>Loading...</div>;
+
+  const filteredData = data.filter(d => hoveredValue === colorValue(d));
 
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
@@ -114,7 +116,7 @@ const App = () => {
             {xAxisLabel}
           </text>
 
-          <g className="tick" transform={`translate(${innerWidth + 60}, 60)`}>
+          <g transform={`translate(${innerWidth + 60}, 60)`}>
             <text
               x={35}
               y={-25}
@@ -128,11 +130,12 @@ const App = () => {
               tickSpacing={22}
               tickSize={circleRadius}
               tickTextOffset={12}
+              onHover={setHoveredValue}
             />
           </g>
 
           <Marks
-            data={data}
+            data={filteredData}
             xScale={xScale}
             yScale={yScale}
             colorScale={colorScale}
