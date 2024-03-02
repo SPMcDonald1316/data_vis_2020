@@ -1,4 +1,4 @@
-import { scaleLinear, format, extent } from "d3";
+import { scaleLinear, format, extent, scaleOrdinal } from "d3";
 import useData from "./useData";
 import AxisBottom from "./AxisBottom.jsx";
 import AxisLeft from "./AxisLeft.jsx";
@@ -43,6 +43,8 @@ const App = () => {
   const yValue = d => d[yAttribute];
   const yAxisLabel = getLabel(yAttribute);
 
+  const colorValue = d => d.species
+
   if (!data) return <div>Loading...</div>;
 
   const innerHeight = height - margin.top - margin.bottom;
@@ -59,6 +61,10 @@ const App = () => {
   const yScale = scaleLinear()
     .domain(extent(data, yValue))
     .range([0, innerHeight]);
+
+  const colorScale = scaleOrdinal()
+    .domain(data.map(colorValue))
+    .range(['#e6842a', '#137b80', '#8e6c8a']);
 
   return (
     <>
@@ -108,8 +114,10 @@ const App = () => {
             data={data}
             xScale={xScale}
             yScale={yScale}
+            colorScale={colorScale}
             xValue={xValue}
             yValue={yValue}
+            colorValue={colorValue}
             tooltipFormat={xAxisTickFormat}
             circleRadius={7}
           />
