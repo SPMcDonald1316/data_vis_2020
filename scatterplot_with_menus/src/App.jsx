@@ -111,7 +111,9 @@ const App = () => {
             {xAxisLabel}
           </text>
 
-          <ColorLegend />
+          <ColorLegend
+            colorScale={colorScale}
+          />
 
           <Marks
             data={data}
