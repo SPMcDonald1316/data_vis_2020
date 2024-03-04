@@ -1,7 +1,7 @@
 # Data Visualization Course - DataVis 2020
 
     Course developed by Curran Kelleher
-    Hosted on FreeCodeCamp Youtube Channel
+    Hosted on freeCodeCamp Youtube Channel
 
 #### invisible_dots.html  
 * Quick code warmup using HTML & CSS  
@@ -82,3 +82,9 @@
 * add color to plotted points based on iris species type
 * add legend to show color & species
 * add hover functionality to allow user to view specific species
+
+#### points_on_a_map
+* using project from world_map
+* use data set from Simplemaps: World Cities Database
+* data set pre processed to remove cities smaller than 50,000
+* use lat & long to add cities to map
