@@ -1,17 +1,17 @@
-import useData from "./useData.js";
+import useWorldAtlas from "./useWorldAtlas.js";
 import Marks from "./Marks.jsx";
 
 const width = window.innerWidth;
 const height = window.innerHeight;
 
 const App = () => {
-  const data = useData();
+  const mapData = useWorldAtlas();
 
-  if (!data) return <pre>Loading...</pre>;
+  if (!mapData) return <pre>Loading...</pre>;
 
   return (
     <svg width={width} height={height}>
-      <Marks data={data} />
+      <Marks data={mapData} />
     </svg>
   )
 }
