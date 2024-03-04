@@ -6,14 +6,14 @@ const width = window.innerWidth;
 const height = window.innerHeight;
 
 const App = () => {
-  const mapData = useWorldAtlas();
-  const cityData = useCities();
-  console.log(cityData);
-  if (!mapData) return <pre>Loading...</pre>;
+  const worldAtlas = useWorldAtlas();
+  const cities = useCities();
+
+  if (!worldAtlas || !cities) return <pre>Loading...</pre>;
 
   return (
     <svg width={width} height={height}>
-      <Marks data={mapData} />
+      <Marks worldAtlas={worldAtlas} cities={cities} />
     </svg>
   )
 }
