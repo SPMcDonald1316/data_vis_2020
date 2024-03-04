@@ -1,5 +1,5 @@
-import useData from "useData";
-import Marks from "Marks.jsx";
+import useData from "./useData.js";
+import Marks from "./Marks.jsx";
 
 const width = window.innerWidth;
 const height = window.innerHeight;
@@ -15,3 +15,5 @@ const App = () => {
     </svg>
   )
 }
+
+export default App;
