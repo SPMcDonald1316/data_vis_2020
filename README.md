@@ -88,4 +88,5 @@
 * use data set from Simplemaps: World Cities Database
 * data set pre processed to remove cities smaller than 50,000
 * use lat & long to add cities to map
-* set city circle element size based on population
+* set city circle size radius based on population
+* use d3.scaleSqrt to determine circle radius scale
