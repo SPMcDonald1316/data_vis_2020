@@ -13,7 +13,8 @@ const App = () => {
   if (!worldAtlas || !cities) return <pre>Loading...</pre>;
 
   const sizeValue = d => d.population;
-  const maxRadius = 20;
+  const maxRadius = 15;
+
   const sizeScale = scaleSqrt()
     .domain([0, max(cities, sizeValue)])
     .range([0, maxRadius]);
