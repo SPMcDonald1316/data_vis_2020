@@ -1,35 +1,82 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { scaleLinear, timeFormat, extent, scaleTime } from "d3";
+import useData from "./useData.js";
+import AxisBottom from "./AxisBottom.jsx";
+import AxisLeft from "./AxisLeft.jsx";
+import Marks from "./Marks.jsx";
 
-function App() {
-  const [count, setCount] = useState(0)
+const width = window.innerWidth;
+const height = window.innerHeight;
+const margin = { top: 20, right: 30, bottom: 65, left: 90 };
+const xAxisLabelOffset = 50;
+const yAxisLabelOffset = 40;
+
+const xValue = d => d.timestamp;
+const xAxisLabel = 'Time';
+
+const yValue = d => d.temperature;
+const yAxisLabel = 'Temperature';
+
+const App = () => {
+  const data = useData();
+
+  if (!data) return <pre>Loading...</pre>;
+
+  const innerHeight = height - margin.top - margin.bottom;
+  const innerWidth = width - margin.left - margin.right;
+
+  const xAxisTickFormat = timeFormat('%a');
+
+  const xScale = scaleTime()
+    .domain(extent(data, xValue))
+    .range([0, innerWidth])
+    .nice();
+
+  const yScale = scaleLinear()
+    .domain(extent(data, xValue))
+    .range([innerHeight, 0])
+    .nice();
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <svg width={width} height={height}>
+      <g transform={`translate(${margin.left}, ${margin.top})`}>
+        <AxisBottom
+          xScale={xScale}
+          innerHeight={innerHeight}
+          tickFormat={xAxisTickFormat}
+          tickOffset={7}
+        />
+
+        <text
+          className="axis-label"
+          textAnchor="middle"
+          transform={`translate(${-yAxisLabelOffset}, ${innerHeight / 2}) rotate(-90)`}
+        >
+          {yAxisLabel}
+        </text>
+
+        <AxisLeft yScale={yScale} innerWidth={innerWidth} tickOffset={7} />
+
+        <text
+          className="axis-label"
+          x={innerWidth / 2}
+          textAnchor="middle"
+          y={innerHeight + xAxisLabelOffset}
+        >
+          {xAxisLabel}
+        </text>
+
+        <Marks
+          data={data}
+          xScale={xScale}
+          yScale={yScale}
+          xValue={xValue}
+          yValue={yValue}
+          tooltipFormat={xAxisTickFormat}
+          circleRadius={4}
+        />
+      </g>
+    </svg>
   )
 }
 
-export default App
+export default App;
