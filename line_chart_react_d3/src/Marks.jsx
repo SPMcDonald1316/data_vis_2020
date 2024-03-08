@@ -8,6 +8,7 @@ export const Marks = ({data, xScale, yScale, xValue, yValue, tooltipFormat, circ
         .curve(curveNatural)(data)
         } />
     {/* {data.map((d, index) => (
+      // Add points to line
       // <circle
       //   key={index}
       //   cx={xScale(xValue(d))}
