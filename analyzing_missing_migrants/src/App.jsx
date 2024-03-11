@@ -32,7 +32,7 @@ const App = () => {
     .nice();
 
   const yScale = scaleLinear()
-    .domain(extent(data, xValue))
+    .domain(extent(data, yValue))
     .range([innerHeight, 0])
     .nice();
 
