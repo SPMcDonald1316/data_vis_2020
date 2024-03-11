@@ -9,3 +9,5 @@ const Marks = ({data, xScale, yScale, xValue, yValue, tooltipFormat, circleRadiu
         .curve(curveNatural)(data)
       } />
   </g>
+
+export default Marks;
