@@ -92,3 +92,4 @@
 * use d3.scaleSqrt to determine circle radius scale
 
 #### analyzing_missing_migrants
+* Part 1 ~ Upload data set from Missing Migrants Project, display on simple scatterplot
