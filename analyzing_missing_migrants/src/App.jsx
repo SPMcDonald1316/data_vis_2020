@@ -7,14 +7,14 @@ import Marks from "./Marks.jsx";
 const width = window.innerWidth;
 const height = window.innerHeight;
 const margin = { top: 20, right: 30, bottom: 65, left: 90 };
-const xAxisLabelOffset = 50;
-const yAxisLabelOffset = 40;
+const xAxisLabelOffset = 55;
+const yAxisLabelOffset = 50;
 
-const xValue = d => d.timestamp;
-const xAxisLabel = 'Time';
+const xValue = d => d['Reported Date'];
+const xAxisLabel = 'Reported Date';
 
-const yValue = d => d.temperature;
-const yAxisLabel = 'Temperature';
+const yValue = d => d['Total Dead and Missing'];
+const yAxisLabel = 'Total Dead and Missing';
 
 const App = () => {
   const data = useData();
@@ -24,7 +24,7 @@ const App = () => {
   const innerHeight = height - margin.top - margin.bottom;
   const innerWidth = width - margin.left - margin.right;
 
-  const xAxisTickFormat = timeFormat('%a');
+  const xAxisTickFormat = timeFormat('%m/%d/%Y');
 
   const xScale = scaleTime()
     .domain(extent(data, xValue))
@@ -72,7 +72,7 @@ const App = () => {
           xValue={xValue}
           yValue={yValue}
           tooltipFormat={xAxisTickFormat}
-          circleRadius={4}
+          circleRadius={2}
         />
       </g>
     </svg>

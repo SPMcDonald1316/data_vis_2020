@@ -1,15 +1,15 @@
 import { csv } from "d3";
 import { useEffect, useState } from "react";
 
-const csvUrl = 'https://gist.githubusercontent.com/whoinlee/f8d0453cb140da2d1b1d474fe1fa3cd6/raw/15a19e4c75a018750c798e1d37058f8920d75d80/week_temperature_sf.csv';
+const csvUrl = 'https://gist.githubusercontent.com/curran/a9656d711a8ad31d812b8f9963ac441c/raw/c22144062566de911ba32509613c84af2a99e8e2/MissingMigrants-Global-2019-10-08T09-47-14-subset.csv';
 
 const useData = () => {
   const [data, setData] = useState(null)
 
   useEffect(() => {
     const row = d => {
-      d.temperature = +d.temperature;
-      d.timestamp = new Date(d.timestamp);
+      d['Total Dead and Missing'] = +d['Total Dead and Missing'];
+      d['Reported Date'] = new Date(d['Reported Date']);
       return d;
     }
     csv(csvUrl, row).then(setData)
